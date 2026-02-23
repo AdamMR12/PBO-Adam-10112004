@@ -13,27 +13,33 @@
         <input type="submit" value="simpan">
     </form>
     <?php
-        
-    class produk{
+        $nama = "";
+        $harga = "";
+        if(empty($_POST['nama']) && empty($_POST['harga'])){
+            echo "input nama dan harga produk";
+            exit;
+        }
+        class produk{
+        public $harga;
         public function harga(){
-            if($this->harga){
+            if($this->harga>100000){
                 return "produk mahal";
             }else{
                 return "produk murah";
             }
+            }
         }
-    }
         
-        $nama = "";
-        $harga = "";
+        $produk1 = new Produk();
 
-        if(empty($_POST['nama']) && empty($_POST['harga'])){
-            echo "input nama dan harga produk";
-        }else{
-            echo "nama produk: ".$nama."<br>";
-            echo "harga produk: ".$harga;
+        $nama = $_POST['nama'];
+        $harga = $_POST['harga'];
 
-        }
+        $produk1->harga = $harga;
+
+        echo "nama produk: " . $nama . "<br>";
+        echo "harga produk: " . $harga . "<br>";
+        echo "status harga: " . $produk1->Harga();
     ?>
 </body>
 </html>
