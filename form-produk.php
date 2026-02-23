@@ -13,6 +13,17 @@
         <input type="submit" value="simpan">
     </form>
     <?php
+        
+    class produk{
+        public function harga(){
+            if($this->harga){
+                return "produk mahal";
+            }else{
+                return "produk murah";
+            }
+        }
+    }
+        
         $nama = "";
         $harga = "";
 
@@ -21,8 +32,8 @@
         }else{
             echo "nama produk: ".$nama."<br>";
             echo "harga produk: ".$harga;
+
         }
-        
     ?>
 </body>
 </html>
