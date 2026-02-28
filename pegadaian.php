@@ -15,7 +15,7 @@
         <input type="submit" value="simpan">
     </form>
     <?php
-// Check only required fields (pinjaman, bunga, bulan) - tempo can be 0
+
 if(empty($_POST['pjm']) || empty($_POST['bng']) || empty($_POST['bln'])){
     echo "Input jumlah pinjaman, bunga, dan lama pinjaman";
     exit;
@@ -39,12 +39,12 @@ class gadai{
     }
     
     public function angsuran(){
-        // Cast to float to ensure numeric operations
+        
         $totalPinjaman = (float)$this->totalPinjaman();
         $bulan = (float)$this->bulan;
         
         if($bulan <= 0) {
-            return $totalPinjaman; // Return total if bulan is 0 or negative
+            return $totalPinjaman; 
         }
         
         $Tangsu = $totalPinjaman / $bulan;
@@ -59,14 +59,14 @@ class gadai{
     }
 }
 
-// Create object and set properties with type casting
-$pinjam1 = new gadai();
-$pinjam1->pinjam = (float)$_POST['pjm'];  // Cast to float
-$pinjam1->bunga = (float)$_POST['bng'];    // Cast to float
-$pinjam1->bulan = (float)$_POST['bln'];    // Cast to float
-$pinjam1->tempo = isset($_POST['tmp']) ? (float)$_POST['tmp'] : 0;  // Default to 0 if not set
 
-// Display results with proper formatting
+$pinjam1 = new gadai();
+$pinjam1->pinjam = (float)$_POST['pjm'];  
+$pinjam1->bunga = (float)$_POST['bng'];    
+$pinjam1->bulan = (float)$_POST['bln'];    
+$pinjam1->tempo = isset($_POST['tmp']) ? (float)$_POST['tmp'] : 0;  
+
+
 echo "<h2>Hasil Perhitungan Pegadaian</h2>";
 echo "Pinjaman : Rp " . number_format($pinjam1->pinjam, 0, ',', '.') . "<br>";
 echo "Bunga : " . $pinjam1->bunga . "%<br>";
@@ -77,12 +77,12 @@ echo "Keterlambatan : " . $pinjam1->tempo . " bulan<br><br>";
 echo "Total Pinjaman + Bunga : Rp " . number_format($pinjam1->totalPinjaman(), 0, ',', '.') . "<br>";
 echo "Angsuran per Bulan : Rp " . number_format($pinjam1->angsuran(), 0, ',', '.') . "<br>";
 
-// Calculate and display late fee only if there is a delay
+
 if($pinjam1->tempo > 0) {
     $denda = $pinjam1->tempo * 0.15 * $pinjam1->angsuran();
     $totalDenganDenda = $pinjam1->tempo();
     
-    echo "Denda keterlambatan (" . $pinjam1->tempo . " bulan @15%) : Rp " . 
+    echo "Denda keterlambatan (" . $pinjam1->tempo . " bulan 0.15%) : Rp " . 
          number_format($denda, 0, ',', '.') . "<br>";
     echo "Total yang harus dibayar (dengan denda) : Rp " . 
          number_format($totalDenganDenda, 0, ',', '.') . "<br>";
