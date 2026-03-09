@@ -3,7 +3,7 @@ function format($angka){
     return "Rp " . number_format($angka,0,",",".");
 }
 
-class Belanja {
+class Belanja{
 
     public $member;
     public $total;
