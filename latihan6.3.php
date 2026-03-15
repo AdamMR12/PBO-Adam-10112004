@@ -13,6 +13,5 @@ foreach($data as $n){
     echo "<td>".$n["nilai"]."</td>";
     echo "</tr>";
 }
-
 echo "</table>";
 ?>
