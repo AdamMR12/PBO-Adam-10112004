@@ -2,11 +2,10 @@
 
 class GajiKaryawan
 {
-    private $dataKaryawan; // array untuk menyimpan data karyawan
-    private $gajiPokokList; // daftar gaji pokok per golongan
+    private $dataKaryawan; 
+    private $gajiPokokList; 
     private $lemburPerJam = 15000;
 
-    // Constructor dengan parameter (data awal)
     public function __construct($dataAwal = [])
     {
         $this->gajiPokokList = [
@@ -19,24 +18,20 @@ class GajiKaryawan
             "Ivd" => 2300000
         ];
         $this->dataKaryawan = [];
-        // Jika ada data awal, proses dan hitung total gaji
         foreach ($dataAwal as $item) {
             $this->tambahData($item['nama'], $item['golongan'], $item['jamLembur']);
         }
     }
 
-    // Method untuk mendapatkan gaji pokok berdasarkan golongan
     private function getGajiPokok($golongan)
     {
         if (isset($this->gajiPokokList[$golongan])) {
             return $this->gajiPokokList[$golongan];
         } else {
-            // Jika golongan tidak dikenal, kembalikan 0
             return 0;
         }
     }
 
-    // Method untuk menghitung total gaji
     private function hitungTotalGaji($golongan, $jamLembur)
     {
         $gajiPokok = $this->getGajiPokok($golongan);
@@ -44,7 +39,6 @@ class GajiKaryawan
         return $gajiPokok + $tunjanganLembur;
     }
 
-    // CREATE: Tambah data karyawan
     public function tambahData($nama, $golongan, $jamLembur)
     {
         $totalGaji = $this->hitungTotalGaji($golongan, $jamLembur);
@@ -57,7 +51,6 @@ class GajiKaryawan
         echo "Data berhasil ditambahkan!\n";
     }
 
-    // READ: Tampilkan semua data dalam bentuk tabel
     public function tampilkanData()
     {
         if (empty($this->dataKaryawan)) {
@@ -77,7 +70,6 @@ class GajiKaryawan
         echo "\n";
     }
 
-    // UPDATE: Perbarui data berdasarkan nomor urut (1-index)
     public function updateData($no, $namaBaru, $golonganBaru, $jamLemburBaru)
     {
         $index = $no - 1;
@@ -95,7 +87,6 @@ class GajiKaryawan
         echo "Data nomor $no berhasil diperbarui.\n";
     }
 
-    // DELETE: Hapus data berdasarkan nomor urut
     public function hapusData($no)
     {
         $index = $no - 1;
