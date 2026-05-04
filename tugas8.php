@@ -104,7 +104,6 @@ class GajiKaryawan
     }
 }
 
-// ========== PROGRAM UTAMA ==========
 
 $dataAwal = [
     ['nama' => 'Andin',  'golongan' => 'Ilb', 'jamLembur' => 30],
