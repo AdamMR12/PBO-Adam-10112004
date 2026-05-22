@@ -26,7 +26,7 @@ if ($result->num_rows === 1) {
     if (password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['id_user'];
         
-        header("Location: dashboard.php");
+        header("Location: ../index.php");
         exit();
     } else {
         $_SESSION['error'] = "Password salah!";

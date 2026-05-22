@@ -1,3 +1,11 @@
+<?php
+session_start();
+?>
+<a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/template/FlexStart/assets/img/logo.png" alt="">
+        <h1 class="sitename">Inventory Gudang</h1>
+      </a>
 <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="#hero" class="active">Home<br></a></li>
@@ -55,4 +63,12 @@
           <li><a href="#contact">Kontak</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
+</nav>
+
+<?php
+      if (isset($_SESSION['user_id'])) {
+          echo '<a class="btn-getstarted flex-md-shrink-0" href="auth/logout.php">Logout</a>';
+      } else {
+          echo '<a class="btn-getstarted flex-md-shrink-0" href="auth/login.php">Login</a>';
+      }
+?>
