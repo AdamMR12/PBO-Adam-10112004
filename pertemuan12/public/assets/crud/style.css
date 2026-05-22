@@ -1,0 +1,159 @@
+/* ===== Reset ringan ===== */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #222;
+  background: #fff;
+  line-height: 1.5;
+}
+
+/* ===== Header ===== */
+.judul{
+  background: #9fd6d9;
+  border-bottom: 1px solid #8ec8cb;
+  padding: 24px 16px;
+  text-align: center;
+}
+.judul h1{
+  margin: 0 0 6px 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: #183b3f;
+}
+.judul h2{
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #24494d;
+}
+
+/* ===== NAVBAR ===== */
+.menu{
+  background: #9fd6d9;
+  border-top: 1px solid #8ec8cb;
+  border-bottom: 1px solid #8ec8cb;
+}
+.menu .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.menu ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 12px;
+}
+.menu li { position: relative; }
+.menu a{
+  display: block;
+  padding: 8px 10px;
+  text-decoration: none;
+  color: #2c4c4f;             /* warna font lebih lembut */
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+.menu li:hover > a{
+  background: rgba(0,0,0,0.05);
+  color: #0f2e33;
+}
+
+/* ===== Dropdown ===== */
+.menu ul ul{
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 190px;
+  display: none;
+  background: #f6fbfc;
+  border: 1px solid #d0e3e5;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  z-index: 99;
+}
+.menu li:hover > ul { display: block; }
+.menu ul ul a {
+  padding: 8px 12px;
+  color: #31575b;
+  font-weight: 500;
+}
+.menu ul ul a:hover {
+  background: #e8f1f3;
+  color: #14363a;
+}
+
+/* ===== Container utama ===== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 24px;       /* margin kiri-kanan agar tidak nempel */
+}
+
+/* ===== Tombol Tambah ===== */
+a.tombol, .tombol{
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 20px 0 22px 0;   /* beri jarak atas dan bawah */
+  color: #245bb2;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+.tombol:hover{
+  text-decoration: underline;
+}
+
+/* ===== Heading Data ===== */
+h3{
+  margin: 12px 0 8px;
+  font-size: 15px;
+  color: #24494d;
+}
+
+/* ===== Tabel ===== */
+.table{
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  margin-top: 6px;
+}
+.table th, .table td{
+  border: 1px solid #cfd8dc;
+  padding: 8px 10px;
+  vertical-align: middle;
+}
+.table th{
+  background: #eef4f6;
+  font-weight: 700;
+  text-align: left;
+  font-size: 13px;
+}
+.table td{ font-size: 13px; }
+.table tr:nth-child(even) td{ background: #fafcfd; }
+
+/* ===== Opsi Edit/Hapus ===== */
+a.edit, a.hapus{
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+}
+a.edit{ color: #2d89ef; }
+a.hapus{ color: #d24a4a; }
+a.edit:hover, a.hapus:hover{ text-decoration: underline; }
+
+/* ===== Utility spacing ===== */
+.br{ height: 8px; }
+.mt-8{ margin-top: 8px; }
+.mb-8{ margin-bottom: 8px; }
+
+/* ===== Responsif ===== */
+@media (max-width: 768px){
+  .menu ul{ flex-wrap: wrap; }
+  .container{ padding: 14px; }
+  .table th, .table td{ padding: 6px; font-size: 12px; }
+}
